@@ -13,29 +13,30 @@ class NameNotValidException extends Exception {
 }
 
 public class Student {
-    int rollno;
-    String name;
-    int age;
-    String course;
+  private int rollNo;
+    private String name;
+    private int age;
+    private String course;
 
-    public Student(int rollno, String name, int age, String course) throws AgeNotWithinRangeException, NameNotValidException{
+    public Student(int rollNo, String name, int age, String course) throws AgeNotWithinRangeException, NameNotValidException{
 
-        if(age < 15 || age > 21)
-        {
-               throw  new AgeNotWithinRangeException("Age must be between 15 and 21");
+        this.rollNo = rollNo;
+
+        if (!name.matches("[a-zA-Z\\s]+")) {
+            throw new NameNotValidException("Name is not valid. It must not contain digits or special characters.");
         }
-        if(!name.matches("[a-zA-Z\\\\s]+") )
-        {
-            throw new NameNotValidException("Name must contain only alphabets and space");
-        }
-        this.rollno = rollno;
         this.name = name;
+
+        if (age < 15 || age > 21) {
+            throw new AgeNotWithinRangeException("Age is not within the valid range (15 to 21).");
+        }
         this.age = age;
+
         this.course = course;
     }
     public void display()
     {
-        System.out.println("Roll No: "+ rollno);
+        System.out.println("Roll No: "+ rollNo);
         System.out.println("Name: "+ name);
         System.out.println("Age: "+age);
         System.out.println("Course: "+ course);
