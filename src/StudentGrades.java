@@ -9,7 +9,7 @@ public class StudentGrades {
     public void addStudent(String name, int grade)
     {
         studentMap.put(name,grade);
-        System.out.println("Student Added: "+ name +"with grade"+ grade);
+        System.out.println("Student Added: "+ name +" with grade "+ grade);
 
     }
     public void removeStudent(String name)
@@ -28,7 +28,7 @@ public class StudentGrades {
         if(studentMap.containsKey(name))
         {
             int grade=studentMap.get(name);
-            System.out.println("Grade for"+ name +":"+grade);
+            System.out.println("Grade for: "+ name +":"+grade);
         }
         else {
             System.out.println("Student not found: "+ name);
